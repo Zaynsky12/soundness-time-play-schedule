@@ -427,7 +427,7 @@
         <div class="header">
             <div class="current-date">
                 <div class="month-year" id="monthYear"></div>
-                <div class="calendar-subtitle">Role Kalender Soundness</div>
+                <div class="calendar-subtitle">Soundness Calendar Role</div>
                 <div class="real-time" id="realTime"></div>
                 <div class="timezone-selector">
                     <button class="timezone-btn active" id="wibBtn" data-timezone="WIB">WIB</button>
@@ -438,23 +438,23 @@
         </div>
 
         <div class="weekdays">
-            <div class="weekday">MIN</div>
-            <div class="weekday">SEN</div>
-            <div class="weekday">SEL</div>
-            <div class="weekday">RAB</div>
-            <div class="weekday">KAM</div>
-            <div class="weekday">JUM</div>
-            <div class="weekday">SAB</div>
+            <div class="weekday">SUN</div>
+            <div class="weekday">MON</div>
+            <div class="weekday">TUE</div>
+            <div class="weekday">WED</div>
+            <div class="weekday">THU</div>
+            <div class="weekday">FRI</div>
+            <div class="weekday">SAT</div>
         </div>
 
         <div class="days-grid" id="daysGrid"></div>
 
         <div class="footer">
-            <p>Pola Role: blu → wava → echo → zippy → bloop (siklus berulang)</p>
+            <p>Role Pattern: blu → wava → echo → zippy → bloop (Repeating Cycle)</p>
             <div class="footer-nav">
-                <button class="nav-btn" id="prevMonth">← Sebelumnya</button>
-                <button class="nav-btn today-btn" id="todayBtn">Hari Ini</button>
-                <button class="nav-btn" id="nextMonth">Berikutnya →</button>
+                <button class="nav-btn" id="prevMonth">← Previous</button>
+                <button class="nav-btn today-btn" id="todayBtn">Today</button>
+                <button class="nav-btn" id="nextMonth">Next →</button>
             </div>
         </div>
     </div>
@@ -467,8 +467,8 @@
                 this.displayYear = this.currentDate.getFullYear();
                 this.roles = ['blu', 'wava', 'echo', 'zippy', 'bloop'];
                 this.monthNames = [
-                    'Januari', 'Februari', 'Maret', 'April', 'Mei', 'Juni',
-                    'Juli', 'Agustus', 'September', 'Oktober', 'November', 'Desember'
+                    'January', 'February', 'March', 'April', 'May', 'June',
+                    'July', 'August', 'September', 'October', 'November', 'December'
                 ];
                 this.timezone = 'WIB';
                 this.timezoneOffsets = {
