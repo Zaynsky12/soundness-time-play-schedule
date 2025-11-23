@@ -4,6 +4,37 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Role Calendar - Premium Edition</title>
+    /* Language Switcher */
+    .language-switcher {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    display: flex;
+    gap: 10px;
+    }
+
+    .lang-btn {
+    background: rgba(255,255,255,0.15);
+    border: 1px solid rgba(255,255,255,0.3);
+    padding: 6px 12px;
+    color: #fff;
+    font-size: 0.85em;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: 0.3s;
+    font-weight: 600;
+    }
+
+    .lang-btn:hover {
+    background: rgba(255,255,255,0.3);
+    }
+
+    .lang-btn.active {
+    background: linear-gradient(135deg, #43e97b 0%, #38f9d7 100%);
+    border: none;
+    color: #000;
+    }
+
     <style>
         * {
             margin: 0;
@@ -391,6 +422,11 @@
                 padding: 8px 3px;
             }
 
+            <div class="language-switcher">
+                <button class="lang-btn active" id="langID">ID</button>
+                <button class="lang-btn" id="langEN">EN</button>
+                </div>
+
             .day-number {
                 font-size: 1em;
                 margin-bottom: 5px;
@@ -577,6 +613,32 @@
                 for (let i = 0; i < firstDay; i++) {
                     const emptyCell = document.createElement('div');
                     emptyCell.className = 'day-cell empty';
+                    // Language Switcher (example only)
+document.getElementById("langID").addEventListener("click", () => {
+    setLanguage("ID");
+});
+
+document.getElementById("langEN").addEventListener("click", () => {
+    setLanguage("EN");
+});
+
+function setLanguage(lang) {
+    document.querySelectorAll(".lang-btn").forEach(btn => btn.classList.remove("active"));
+    document.getElementById(lang === "ID" ? "langID" : "langEN").classList.add("active");
+
+    if (lang === "EN") {
+        document.querySelector(".calendar-subtitle").textContent = "Soundness Role Calendar";
+        document.getElementById("todayBtn").textContent = "Today";
+        document.getElementById("prevMonth").textContent = "← Previous";
+        document.getElementById("nextMonth").textContent = "Next →";
+    } else {
+        document.querySelector(".calendar-subtitle").textContent = "Role Kalender Soundness";
+        document.getElementById("todayBtn").textContent = "Hari Ini";
+        document.getElementById("prevMonth").textContent = "← Sebelumnya";
+        document.getElementById("nextMonth").textContent = "Berikutnya →";
+    }
+}
+
                     daysGridElement.appendChild(emptyCell);
                 }
 
