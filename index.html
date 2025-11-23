@@ -323,14 +323,19 @@
             .day-number {
                 font-size: 1.2em;
             }
-
+            
+            .day-cell.today::before {
+                top: 6px;
+                left: 6px;
+                font-size: 0.3em;
+            }
             .role-name {
                 font-size: 0.65em;
                 padding: 3px 8px;
             }
 
             .weekday {
-                font-size: 0.75em;
+                font-size: 0.70em;
             }
 
             .footer {
@@ -377,7 +382,7 @@
             }
 
             .weekdays {
-                gap: 5px;
+                gap: 0.75px;
             }
 
             .day-cell {
@@ -496,7 +501,7 @@
                 document.querySelectorAll('.timezone-btn').forEach(btn => {
                     btn.classList.remove('active');
                 });
-                document.querySelector([data-timezone="${tz}"]).classList.add('active');
+                document.querySelector(`[data-timezone="${tz}"]`).classList.add('active');
                 this.updateRealTime();
             }
 
@@ -553,7 +558,7 @@
                 const minutes = String(utcMinutes).padStart(2, '0');
                 const seconds = String(utcSeconds).padStart(2, '0');
                 
-                const timeString = ${dayName}, ${date} ${month} ${year} | ${hours}:${minutes}:${seconds} ${this.timezone};
+                const timeString = `${dayName}, ${date} ${month} ${year} | ${hours}:${minutes}:${seconds} ${this.timezone}`;
                 document.getElementById('realTime').textContent = timeString;
             }
 
@@ -561,7 +566,7 @@
                 const monthYearElement = document.getElementById('monthYear');
                 const daysGridElement = document.getElementById('daysGrid');
 
-                monthYearElement.textContent = ${this.monthNames[this.displayMonth]} ${this.displayYear};
+                monthYearElement.textContent = `${this.monthNames[this.displayMonth]} ${this.displayYear}`;
 
                 const firstDay = new Date(this.displayYear, this.displayMonth, 1).getDay();
                 const daysInMonth = new Date(this.displayYear, this.displayMonth + 1, 0).getDate();
@@ -595,7 +600,7 @@
 
                     const role = this.getRoleForDate(day);
                     const roleName = document.createElement('div');
-                    roleName.className = role-name role-${role};
+                    roleName.className = `role-name role-${role}`;
                     roleName.textContent = role;
 
                     dayCell.appendChild(dayNumber);
